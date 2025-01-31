@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: transparent; /* Nền trong suốt để phù hợp với trang chính */
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Vùng chứa chữ chạy */
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Chữ chạy */
+        .marquee-text {
+            display: inline-block;
+            font-size: 30px;
+            font-weight: bold;
+            color: red;
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 5px #FFD700;
+            position: relative;
+        }
+
+        /* Hiệu ứng chạy từ phải sang trái */
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee-container" id="marquee">
+        <div class="marquee-text" id="text">🎉 Chúc Mừng Năm Mới 2025! An Khang - Thịnh Vượng - Vạn Sự Như Ý! 🎊</div>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            let marquee = document.getElementById("marquee");
+            let text = document.getElementById("text");
+
+            // Hiện chữ
+            marquee.style.opacity = "1";
+
+            // Animation chạy từ phải sang trái, tốc độ chậm hơn (16 giây), chạy đúng 2 lần
+            text.style.animation = "marquee 16s linear 2";
+        }, 1000);
+    </script>
+
+</body>
+</html>
